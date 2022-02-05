@@ -4,10 +4,7 @@ console.log("Hello from main_module.ts!");
 
 export function canvas_draw(canvas :HTMLCanvasElement, in_data :InData){
   if(!canvas) return;
-  var opt :CanvasRenderingContext2DSettings = {alpha: true};
-  var ctx = canvas.getContext('2d', opt) as CanvasRenderingContext2D;
-  // var fillRule :CanvasFillRule = "nonzero";
-  // ctx.fill(fillRule)
+  var ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
   var W = canvas.width, H = canvas.height;
   // Rects 
   ctx.strokeStyle = 'red';
