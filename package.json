@@ -1,7 +1,7 @@
 {
-  "name": "hello-canvas",
+  "name": "easy-chart",
   "version": "1.0.0",
-  "description": "Hello Canvas project on typescript.",
+  "description": "Easy Chart project on typescript.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
