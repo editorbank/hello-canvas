@@ -14,7 +14,7 @@ if(window) window.onload = function () {
   paragraph_draw('messageTop',"Start Charting...");
 
   console.log("on_load() Find canvas element and draw it...");
-  var canvas1 = (document.getElementById('myChart') as HTMLCanvasElement);
+  var canvas1 = (document.getElementById('theCanvas') as HTMLCanvasElement);
   if(canvas1){
     console.log("on_load() canvas1:" + canvas1);
     canvas_draw(canvas1, in_data);

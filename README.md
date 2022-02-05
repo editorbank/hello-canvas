@@ -21,3 +21,7 @@ For dedevoping run:
 npm run watch
 ```
 and open in browser `.\dist\index.html`
+
+## Links
+* [CANVAS шаг за шагом: Основы](https://habr.com/ru/post/111308/)
+* [Ben Joffe - Canvascape - "3D Walker"](https://www.benjoffe.com/code/demos/canvascape)
