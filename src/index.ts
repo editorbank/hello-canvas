@@ -1,7 +1,6 @@
 console.log("Hello from index.ts!");
 
 import { canvas_draw } from "./canvas_draw";
-import in_data from "./in_data";
 
 function paragraph_draw(id :string, text :string) {
   var element = document.getElementById(id) as HTMLParagraphElement;
@@ -17,7 +16,7 @@ if(window) window.onload = function () {
   var canvas1 = (document.getElementById('theCanvas') as HTMLCanvasElement);
   if(canvas1){
     console.log("on_load() canvas1:" + canvas1);
-    canvas_draw(canvas1, in_data);
+    canvas_draw(canvas1);
   }
 
   paragraph_draw('messageBottom',"Done Charting.");

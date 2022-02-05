@@ -1,8 +1,6 @@
-import { InData } from "./in_data";
-
 console.log("Hello from main_module.ts!");
 
-export function canvas_draw(canvas :HTMLCanvasElement, in_data :InData){
+export function canvas_draw(canvas :HTMLCanvasElement){
   if(!canvas) return;
   var ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
   var W = canvas.width, H = canvas.height;
