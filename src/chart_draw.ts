@@ -15,7 +15,7 @@ export function chart_draw(canvas :HTMLCanvasElement, in_data :InData){
   var vW = cW/count; // Ширина областей прямоугольников
   var minValue = in_data.values[0]||0;
   var maxValue = minValue;
-  var verticalGridColor = 'lightgray'; // '',null,undefined - без рисования вертикальной сетки
+  var verticalGridColor = in_data.verticalGridColor; // '',null,undefined - без рисования вертикальной сетки
   
   // Вычисление минимов, максимов и пр.
   for( var i=0; i<count;i++){
@@ -34,8 +34,8 @@ export function chart_draw(canvas :HTMLCanvasElement, in_data :InData){
     // return color;
     var gradient = ctx.createLinearGradient(X, 0, W, 0);
     gradient.addColorStop(0.0, 'rgba(0,0,0,.5)');
-    gradient.addColorStop(0.5, color as string);
-    gradient.addColorStop(0.5, color as string);
+    gradient.addColorStop(0.1, color as string);
+    gradient.addColorStop(0.9, color as string);
     gradient.addColorStop(1.0, 'rgba(222,222,222,.5)');
     console.log(`gradient=${gradient} W=${W} W=${X}`);
     return gradient
@@ -50,13 +50,13 @@ export function chart_draw(canvas :HTMLCanvasElement, in_data :InData){
     ctx.fillRect(X, cH-Y-H, W, H);
   }
 
-  function xVerticalText(text :string, X :number, Y :number, FS :number = 16, FN :string = 'Arial', fontColor :HTMLColor = 'black'){
+  function xVerticalText(text :string, X :number, Y :number, fontSize :number = 16, fontName :string = 'Arial', fontColor :HTMLColor = 'black'){
     ctx.save();
     ctx.shadowColor = '#fff' as string;
     ctx.shadowOffsetX = 0;
     ctx.shadowOffsetY = 0;
     ctx.shadowBlur = 5;
-    ctx.font = `${FS}pt ${FN}`;
+    ctx.font = `${fontSize}pt ${fontName}`;
     ctx.textBaseline = "middle";
     ctx.textAlign = "start";
     ctx.translate(X, cH-Y);
@@ -66,7 +66,7 @@ export function chart_draw(canvas :HTMLCanvasElement, in_data :InData){
     ctx.restore();
   }
 
-  var SA = 10 ; // Растояние между столбиком и линией вертикальной сетки
+  var SA = 0 ; // Растояние между столбиком и линией вертикальной сетки
   // Рисование столбиков
   for( var i=0; i<count;i++){
     var value = in_data.values[i];
@@ -74,7 +74,7 @@ export function chart_draw(canvas :HTMLCanvasElement, in_data :InData){
     xRect(vW*i+SA, 0, vW-SA-SA, H, verticalGradient(value >= in_data.overValue ? in_data.overColor : in_data.color, vW*i+SA, vW*i+SA + (vW-SA-SA)));
     // Верикальная сетка    
     if (verticalGridColor) xRect(vW*i, 0, .5, cH, verticalGridColor);
-    xVerticalText(in_data.labels[i], 0+i*vW +vW/2, 10);
+    xVerticalText(in_data.labels[i], 0+i*vW +vW/2, 10, in_data.fontSize, in_data.fontName, in_data.fontColor);
   
   };
   if (verticalGridColor) xRect(vW*count-1, 0, .5, cH, verticalGridColor); // последяя правая линия сетки

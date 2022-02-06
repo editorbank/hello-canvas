@@ -8,7 +8,11 @@ export interface InData {
   overValue :number;
   overColor :'red' | HTMLColor;
   overLineColor :'red' | HTMLColor;
-  maxLabelLen ?:0 | number;
+  maxLabelLen?: 0 | number;
+  verticalGridColor?: HTMLColor;
+  fontName?: string;  
+  fontSize?: number;
+  fontColor?: HTMLColor;
 }
 
 var in_data :InData = {
@@ -20,6 +24,7 @@ var in_data :InData = {
   overColor: 'red',
   overLineColor: 'red',
   maxLabelLen: 15,
+  verticalGridColor: 'lightgray',
 }
 
 export default in_data;
