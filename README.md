@@ -1,5 +1,7 @@
 # Hello Canvas project on typescript.
 
+![easy-chart-1.png](./doc/images/easy-chart-1.png)
+
 ## Building
 This project has been created using **webpack-cli**, you can now run
 
