@@ -1,5 +1,7 @@
 # Hello Canvas project on typescript.
 
+The continuation of this project is [easy-chart](https://github.com/editorbank/hello-canvas/tree/easy-chart)
+
 ## Building
 This project has been created using **webpack-cli**, you can now run
 
